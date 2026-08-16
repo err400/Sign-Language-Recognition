@@ -1,0 +1,49 @@
+seed: 7
+device: cpu
+
+features:
+  sequence_length: 24
+  feature_dim: 220
+  mirror: false
+
+data:
+  processed_dir: data/processed/smoke
+  batch_size: 8
+  num_workers: 0
+  weighted_sampling: false
+
+augmentation:
+  enabled: true
+  frame_drop_prob: 0.02
+  crop_ratio: 0.9
+  jitter_std: 0.002
+  resample_min: 0.95
+  resample_max: 1.05
+  mirror_prob: 0.0
+
+model:
+  input_dim: 220
+  projection_dim: 32
+  hidden_dim: 32
+  num_layers: 1
+  dropout: 0.0
+  num_classes: 3
+
+training:
+  epochs: 3
+  lr: 0.003
+  weight_decay: 0.0
+  grad_clip: 1.0
+  patience: 3
+  class_weighted_loss: false
+  checkpoint_dir: outputs/smoke/checkpoints
+  run_dir: outputs/smoke/run
+  resume: null
+
+evaluation:
+  top_k: 3
+
+inference:
+  checkpoint: outputs/smoke/checkpoints/best.pt
+  confidence_threshold: 0.0
+  smoothing_window: 3

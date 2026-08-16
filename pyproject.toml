@@ -1,0 +1,22 @@
+[project]
+name = "pose-guided-temporal-sign-language-recognition"
+version = "0.1.0"
+description = "Pose-guided dynamic sign-language classification with MediaPipe landmarks and a bidirectional LSTM."
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "numpy>=1.26",
+  "opencv-python>=4.9",
+  "mediapipe>=0.10",
+  "torch>=2.2",
+  "scikit-learn>=1.4",
+  "PyYAML>=6.0",
+  "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+

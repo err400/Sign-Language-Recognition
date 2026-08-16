@@ -1,0 +1,22 @@
+{
+  "history": [
+    {
+      "epoch": 0.0,
+      "train_loss": 0.810556309563773,
+      "val_accuracy": 0.6666666666666666,
+      "val_macro_f1": 0.5555555555555555
+    },
+    {
+      "epoch": 1.0,
+      "train_loss": 0.27000193297863007,
+      "val_accuracy": 1.0,
+      "val_macro_f1": 1.0
+    },
+    {
+      "epoch": 2.0,
+      "train_loss": 0.04850277557436909,
+      "val_accuracy": 1.0,
+      "val_macro_f1": 1.0
+    }
+  ]
+}

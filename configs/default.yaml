@@ -1,0 +1,55 @@
+seed: 42
+device: auto
+
+features:
+  sequence_length: 48
+  feature_dim: 220
+  mirror: false
+  min_detection_confidence: 0.5
+  min_tracking_confidence: 0.5
+
+data:
+  processed_dir: data/processed/wlasl_subset
+  batch_size: 16
+  num_workers: 0
+  weighted_sampling: true
+  generic_video_dir: data/raw/generic
+  wlasl_json: data/raw/WLASL_v0.3.json
+  wlasl_video_dir: data/raw/videos
+
+augmentation:
+  enabled: true
+  frame_drop_prob: 0.08
+  crop_ratio: 0.85
+  jitter_std: 0.01
+  resample_min: 0.9
+  resample_max: 1.1
+  mirror_prob: 0.0
+
+model:
+  input_dim: 220
+  projection_dim: 128
+  hidden_dim: 128
+  num_layers: 2
+  dropout: 0.25
+  num_classes: 20
+
+training:
+  epochs: 30
+  lr: 0.001
+  weight_decay: 0.01
+  grad_clip: 1.0
+  patience: 6
+  class_weighted_loss: true
+  checkpoint_dir: outputs/checkpoints
+  run_dir: outputs/runs/default
+  resume: null
+
+evaluation:
+  top_k: 3
+
+inference:
+  checkpoint: outputs/checkpoints/best.pt
+  confidence_threshold: 0.45
+  smoothing_window: 5
+
